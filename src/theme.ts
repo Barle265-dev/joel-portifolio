@@ -2,13 +2,13 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 export let theme = createTheme({
   palette: {
-    primary: {
-      main: "#666666ff",
+        primary: {
+            main: '#232323',
+        },
+        secondary: {
+            main: '#4f8e3e',
+        },
     },
-    secondary: {
-      main: "#0f5e15ff",
-    },
-  },
   typography:{
     fontFamily:"-apple-system"
   }
