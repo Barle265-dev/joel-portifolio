@@ -1,7 +1,9 @@
-import { Button, Container, Grid, styled, Typography } from "@mui/material";
+import { Container, Grid, styled, Typography } from "@mui/material";
 import Avatar from "../../../assets/images/eu.jpg";
 import DownloadIcon from "@mui/icons-material/Download";
 import EmailIcon from "@mui/icons-material/Email";
+import { StyledButton } from "../../../components/StyledButton";
+import { theme } from "../../../theme";
 
 const Hero = () => {
   return (
@@ -9,26 +11,41 @@ const Hero = () => {
       <StyledHero>
         <Container maxWidth="lg">
           <Grid container spacing={2}>
-            <Grid size={{ xs: 12, md: 4 }}>
+            <Grid size={{ xs: 12, md: 5 }}>
               <StyledImg src={Avatar} />
             </Grid>
-            <Grid size={{ xs: 12, md: 8 }}>
-              <Typography color="primary" variant="h1" textAlign="center">
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Typography
+                color="primary.contrastText"
+                variant="h1"
+                textAlign="center"
+              >
                 Joel Oliveira
               </Typography>
-              <Typography color="primary" variant="h2" textAlign="center">
+              <Typography
+                color="primary.contrastText"
+                variant="h2"
+                textAlign="center"
+                pb={2}
+              >
                 I'm a Software Engineer
               </Typography>
-              <Grid container display="flex" justifyContent="center">
+              <Grid
+                container
+                spacing={3}
+                display="flex"
+                justifyContent="center"
+                pt={2}
+              >
                 <Grid
                   size={{ xs: 12, md: 4 }}
                   display="flex"
                   justifyContent="center"
                 >
-                  <Button>
+                  <StyledButton>
                     <DownloadIcon />
-                    Download CV
-                  </Button>
+                    <Typography>Download CV</Typography>
+                  </StyledButton>
                 </Grid>
 
                 <Grid
@@ -36,10 +53,10 @@ const Hero = () => {
                   display="flex"
                   justifyContent="center"
                 >
-                  <Button>
+                  <StyledButton>
                     <EmailIcon />
-                    Contact me
-                  </Button>
+                    <Typography>Contact me</Typography>
+                  </StyledButton>
                 </Grid>
               </Grid>
             </Grid>
@@ -51,11 +68,20 @@ const Hero = () => {
 };
 
 export default Hero;
-const StyledHero = styled("div")(() => ({
-  backgroundColor: "black ",
+const StyledHero = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.primary.dark,
   height: "100vh",
+  display: "flex",
+  alignItems: "center",
+  [theme.breakpoints.up("xs")]: {
+    paddingTop: "100px",
+  },
+  [theme.breakpoints.up("md")]: {
+    paddingTop: "100px",
+  },
 }));
 const StyledImg = styled("img")(() => ({
-  width: "100%",
+  width: "75%",
   borderRadius: "50%",
+  border: `1px solid ${theme.palette.primary.contrastText}`,
 }));
