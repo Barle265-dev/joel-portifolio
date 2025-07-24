@@ -1,5 +1,4 @@
-import { Grid, Typography, styled } from "@mui/material";
-import { StyledButton } from "./StyledButton";
+import { Typography, styled } from "@mui/material";
 
 export interface ProjectCardProps {
   title: string;
@@ -18,7 +17,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   technologies,
   websiteURL,
-  codeURL,
 }) => {
   const StyledImg = styled("img")(({ theme }) => ({
     width: "100%",
